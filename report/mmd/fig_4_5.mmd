@@ -1,0 +1,13 @@
+%%{init: {'theme':'base','themeVariables':{'fontFamily':'Arial, Helvetica, sans-serif','fontSize':'18px','primaryColor':'#eef2ff','primaryTextColor':'#111827','primaryBorderColor':'#3730a3','lineColor':'#6b7280','tertiaryColor':'#f8fafc'},'flowchart':{'wrappingWidth':900,'useMaxWidth':false,'htmlLabels':true,'nodeSpacing':35,'rankSpacing':55}}}%%
+flowchart TB
+  G["<b>Mandatory verification gates</b><br/>Data Quality · Semantic Validity · Temporal Leakage · Causal Validation · Explainability · Fairness · Performance · Artifact Validation"]:::n
+  D["<b>Deployment Readiness</b><br/>all mandatory gates must pass"]:::d
+  G --> D
+  D --> R(["READY"]):::ok
+  D --> B(["BLOCKED — any FAIL"]):::bad
+  D --> H(["HUMAN REVIEW"]):::warn
+  classDef n fill:#eef2ff,stroke:#3730a3,color:#111827;
+  classDef d fill:#dcfce7,stroke:#166534,color:#111827,stroke-width:2px;
+  classDef ok fill:#dcfce7,stroke:#166534,color:#111827;
+  classDef bad fill:#fee2e2,stroke:#991b1b,color:#111827;
+  classDef warn fill:#fef3c7,stroke:#92400e,color:#111827;

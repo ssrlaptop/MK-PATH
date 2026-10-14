@@ -1,0 +1,79 @@
+{
+  "skill": "mk-path",
+  "generated_from": "git-history-analysis",
+  "repository": "MK-PATH",
+  "instincts": [
+    {
+      "trigger": "writing or changing code that connects to MongoDB",
+      "action": "wrap the connection in a try/except with a short serverSelectionTimeoutMS and fall back to LocalFallbackDB; log a warning instead of raising",
+      "confidence": 0.95,
+      "source": "git-history-analysis"
+    },
+    {
+      "trigger": "calling a DuckDB dataset view",
+      "action": "call registry.ensure_view(dataset_id, normalized_path) immediately before executing SQL, then query the ds_<dataset_id> view",
+      "confidence": 0.9,
+      "source": "git-history-analysis"
+    },
+    {
+      "trigger": "writing a guard around the database handle",
+      "action": "compare with 'is not None' instead of truthiness, because PyMongo/async DB objects raise NotImplementedError on __bool__",
+      "confidence": 0.93,
+      "source": "git-history-analysis"
+    },
+    {
+      "trigger": "adding dashboards, samples, seeds, or demo screens",
+      "action": "do not add mock/template data; drive the view only from real user-uploaded datasets",
+      "confidence": 0.9,
+      "source": "git-history-analysis"
+    },
+    {
+      "trigger": "listing, uploading, or scoping datasets",
+      "action": "filter by project_id so datasets never leak across projects/workspaces",
+      "confidence": 0.88,
+      "source": "git-history-analysis"
+    },
+    {
+      "trigger": "running profiling, healing, or the model tournament",
+      "action": "explicitly handle boolean columns, single-class targets, and very small row counts rather than assuming continuous numeric data",
+      "confidence": 0.85,
+      "source": "git-history-analysis"
+    },
+    {
+      "trigger": "using an LLM provider for analysis or semantic interpretation",
+      "action": "try the active provider (Groq/Gemini) and fall back to a deterministic NullProvider when no key is configured; never invent business meaning",
+      "confidence": 0.85,
+      "source": "git-history-analysis"
+    },
+    {
+      "trigger": "building a test/inference feature frame in the ML engineer or tournament",
+      "action": "preserve the exact feature-name order used during fit time",
+      "confidence": 0.8,
+      "source": "git-history-analysis"
+    },
+    {
+      "trigger": "running backend tests",
+      "action": "run pytest from the backend/ directory so the app imports as top-level 'app'",
+      "confidence": 0.88,
+      "source": "git-history-analysis"
+    },
+    {
+      "trigger": "writing a commit message in this repo",
+      "action": "use conventional-commit format with a scope, e.g. fix(database): ..., feat(dashboard): ..., docs: ...",
+      "confidence": 0.8,
+      "source": "git-history-analysis"
+    },
+    {
+      "trigger": "storing datasets, Parquet, models, or artifacts",
+      "action": "keep them on disk in the gitignored storage dirs; store only metadata/audit state in MongoDB",
+      "confidence": 0.9,
+      "source": "git-history-analysis"
+    },
+    {
+      "trigger": "declaring a task finished on the frontend",
+      "action": "run npm run build (tsc -b && vite build); there is no frontend test runner",
+      "confidence": 0.82,
+      "source": "git-history-analysis"
+    }
+  ]
+}

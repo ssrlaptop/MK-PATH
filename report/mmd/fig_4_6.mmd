@@ -1,0 +1,12 @@
+%%{init: {'theme':'base','themeVariables':{'fontFamily':'Arial, Helvetica, sans-serif','fontSize':'18px','primaryColor':'#eef2ff','primaryTextColor':'#111827','primaryBorderColor':'#3730a3','lineColor':'#6b7280','tertiaryColor':'#f8fafc'},'flowchart':{'wrappingWidth':780,'useMaxWidth':false,'htmlLabels':true,'nodeSpacing':35,'rankSpacing':50}}}%%
+flowchart TB
+  o["<b>Original dataset</b> (immutable)<br/>byte-identical SHA-256"]:::red
+  h["<b>Healing engine</b><br/>imputation / normalization"]:::amber
+  d["<b>Derived dataset</b><br/>new Parquet under /derived/"]:::green
+  rep["<b>BeforeAfterQualityReport</b><br/>before_score · after_score · human accept / reject"]:::n
+  o --> h --> d
+  h --> rep
+  classDef red fill:#fee2e2,stroke:#991b1b,color:#111827;
+  classDef amber fill:#fef3c7,stroke:#92400e,color:#111827;
+  classDef green fill:#dcfce7,stroke:#166534,color:#111827;
+  classDef n fill:#eef2ff,stroke:#3730a3,color:#111827;

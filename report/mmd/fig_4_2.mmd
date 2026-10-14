@@ -1,0 +1,14 @@
+%%{init: {'theme':'base','themeVariables':{'fontFamily':'Arial, Helvetica, sans-serif','fontSize':'18px','primaryColor':'#eef2ff','primaryTextColor':'#111827','primaryBorderColor':'#3730a3','lineColor':'#6b7280','tertiaryColor':'#f8fafc'},'flowchart':{'wrappingWidth':950,'useMaxWidth':false,'htmlLabels':true,'nodeSpacing':35,'rankSpacing':40}}}%%
+flowchart TB
+  s1["<b>1 · Upload</b> — streamed · signature &amp; size checks (≤ 500 MB)"]:::n
+  s2["<b>2 · Secure storage</b> — datasets/&lt;upload_id&gt;/"]:::n
+  s3["<b>3 · ZIP safe extraction</b> — traversal guards + entry / size / ratio budgets"]:::z
+  s4["<b>4 · Deterministic parser</b> — CSV · TSV · TXT · JSON · Parquet · XLSX · XLS · SQL"]:::n
+  s5["<b>5 · Normalized Parquet</b>"]:::n
+  s6["<b>6 · DuckDB view</b> ds_&lt;dataset_id&gt; + metadata / audit"]:::g
+  s1 --> s2 --> s3 --> s4 --> s5 --> s6
+  s6 -. "result contract" .-> c["dataset_id · original_filename · source_format · storage_path · normalized_path · table_name · schema · row_count · column_count · ingestion_status · warnings · errors · upload_id · archive_member · parent_archive · view_name · profile"]:::note
+  classDef n fill:#eef2ff,stroke:#3730a3,color:#111827;
+  classDef g fill:#dcfce7,stroke:#166534,color:#111827;
+  classDef z fill:#fef3c7,stroke:#92400e,color:#111827;
+  classDef note fill:#f8fafc,stroke:#94a3b8,color:#334155,font-size:13px;

@@ -1,0 +1,10 @@
+%%{init: {'theme':'base','themeVariables':{'fontFamily':'Arial, Helvetica, sans-serif','fontSize':'17px','primaryColor':'#eef2ff','primaryTextColor':'#111827','primaryBorderColor':'#3730a3','lineColor':'#6b7280','tertiaryColor':'#f8fafc'},'flowchart':{'wrappingWidth':900,'useMaxWidth':false,'htmlLabels':true,'nodeSpacing':38,'rankSpacing':44}}}%%
+flowchart TB
+  L1["<b>Presentation Layer</b> · React 19 · TypeScript · Tailwind CSS · custom SVG<br/>Dashboard, Upload, Dataset Explorer, Knowledge, Agents, Analysis, Verification, Healing, Artifacts, Audit"]
+  L2["<b>API Layer</b> · FastAPI routers<br/>projects · datasets · semantic · analysis · models · verification · healing · runs · audit"]
+  L3["<b>Orchestration Layer</b> · LangGraph StateGraph<br/>INGEST → PROFILE → SEMANTIC → HUMAN BREAKPOINT → ANALYSIS → ANALYST<br/>→ SCIENTIST → VERIFICATION → TOURNAMENT → ML ENGINEER → ARTIFACTS → AUDIT → END"]
+  L4["<b>Deterministic Compute Layer</b> · DuckDB · pandas / PyArrow · scikit-learn · SHAP (XAI)"]
+  L5["<b>Data &amp; Metadata Layer</b> · Parquet · originals · profiles / models / artifacts · MongoDB Atlas or JSON fallback"]
+  L1 --> L2 --> L3 --> L4 --> L5
+  classDef n fill:#eef2ff,stroke:#3730a3,color:#111827,stroke-width:1.4px,padding:8px;
+  class L1,L2,L3,L4,L5 n;

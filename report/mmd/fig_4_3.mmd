@@ -1,0 +1,12 @@
+%%{init: {'theme':'base','themeVariables':{'fontFamily':'Arial, Helvetica, sans-serif','fontSize':'18px','primaryColor':'#eef2ff','primaryTextColor':'#111827','primaryBorderColor':'#3730a3','lineColor':'#6b7280','tertiaryColor':'#f8fafc'},'flowchart':{'wrappingWidth':1050,'useMaxWidth':false,'htmlLabels':true,'nodeSpacing':40,'rankSpacing':50}}}%%
+flowchart TB
+  A["<b>INGEST</b> → PROFILE → SEMANTIC ANALYSIS → AMBIGUITY CHECK<br/>→ <b>HUMAN BREAKPOINT</b>"]:::h
+  B["ANALYSIS PLANNING → DATA ANALYST<br/>→ DATA SCIENTIST → VERIFICATION → MODEL TOURNAMENT"]:::n
+  C["ML ENGINEER → ARTIFACT GENERATION → AUDIT → <b>END</b>"]:::g
+  A --> B --> C
+  H["MemorySaver checkpoints state<br/>while a clarification is pending"]:::note
+  A -.-> H
+  classDef n fill:#eef2ff,stroke:#3730a3,color:#111827;
+  classDef h fill:#fef3c7,stroke:#92400e,color:#111827,stroke-width:2px;
+  classDef g fill:#dcfce7,stroke:#166534,color:#111827;
+  classDef note fill:#f8fafc,stroke:#94a3b8,color:#334155,font-size:15px;

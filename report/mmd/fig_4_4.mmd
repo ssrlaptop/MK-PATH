@@ -1,0 +1,14 @@
+%%{init: {'theme':'base','themeVariables':{'fontFamily':'Arial, Helvetica, sans-serif','fontSize':'18px','primaryColor':'#eef2ff','primaryTextColor':'#111827','primaryBorderColor':'#3730a3','lineColor':'#6b7280','tertiaryColor':'#f8fafc'},'flowchart':{'wrappingWidth':820,'useMaxWidth':false,'htmlLabels':true,'nodeSpacing':35,'rankSpacing':45}}}%%
+flowchart TB
+  a["Natural-language business goal"]:::n
+  b["Schema grounding — DuckDB DESCRIBE / statistical fallback"]:::n
+  c["Deterministic SQL — SUM · AVG · MIN · MAX · STDDEV"]:::n
+  d["Empirical conclusions"]:::n
+  e["Decision matrix — Impact &amp; Confidence"]:::n
+  f["18-chart visualization"]:::g
+  a --> b --> c --> d --> e --> f
+  note["Zero binder errors — requested metrics are matched against real columns before query generation"]:::note
+  c -.-> note
+  classDef n fill:#eef2ff,stroke:#3730a3,color:#111827;
+  classDef g fill:#dcfce7,stroke:#166534,color:#111827;
+  classDef note fill:#f8fafc,stroke:#94a3b8,color:#334155,font-size:13px;
